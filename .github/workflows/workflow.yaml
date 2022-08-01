@@ -3,7 +3,7 @@ name: Github Pages Deploy
 on:
   push:
       branches:
-        - "gh-pages"
+        - "main"
 
 jobs:
   build:
@@ -21,6 +21,7 @@ jobs:
         run: npm install && npm run build
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          folder: . # The folder the action should deploy. 
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy. 
